@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DBMS_ARSALAN_MVC.Areas.StudentArea.Models.StudentModule>
+
+@{
+    ViewBag.Title = "StudentLMS";
+    Layout = "~/Areas/StudentArea/Views/Shared/_LayoutSt.cshtml";
+}
+
+<h2>StudentLMS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

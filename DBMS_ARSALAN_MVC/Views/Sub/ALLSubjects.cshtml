@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DBMS_ARSALAN_MVC.Models.Subject>
+
+@{
+    ViewBag.Title = "ALLSubjects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ALLSubjects</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new { sid=item.SubjID }) |
+            @Html.ActionLink("Details", "ListEnroll", "EnrollStudent") |
+            @Html.ActionLink("Enrolled Students", "Subjects", new { SubjName=item.SubjName })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DBMS_ARSALAN_MVC.Models.SM.Enroll>
+
+@{
+    ViewBag.Title = "ListEnroll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListEnroll</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subjid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExmID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subjid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExmID)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Update", new { subid= item.Subjid}) |*@
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "DropCourse", new { Subjid = item.Subjid })
+        </td>
+    </tr>
+}
+
+</table>

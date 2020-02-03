@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "AdminPanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AdminPanel</h2>
+
+<div class="col-md-2">
+    <img src="~/Content/Images/Addstudent.jpg" />
+
+    @Html.ActionLink("Manage Student", "ALLStudent", "Student")
+</div>
+<div class="col-md-2">
+
+    <img src="~/Content/Images/attendance.jpg" />
+   
+    @Html.ActionLink("Enrol Student in Course", "ListEnroll", "EnrollStudent")
+</div>
+<div class="col-md-2">
+    <img src="~/Content/Images/addstaff.jpg" />
+    @Html.ActionLink("Manage Staff", "ALLStaff", "Staff")
+    </div>
+<div class="col-md-2">
+    <img src="~/Content/Images/attendance.jpg" />
+    @Html.ActionLink("Create User For Login", "Register", "LoginJustification")
+</div>
+<div class="col-md-2">
+
+    <img src="~/Content/Images/timetable.jpg" />
+    @Html.ActionLink("Departments", "Register", "LoginJustification")
+</div>

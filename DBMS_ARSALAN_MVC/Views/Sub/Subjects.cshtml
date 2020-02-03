@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DBMS_ARSALAN_MVC.Models.SubjSearch>
+
+@{
+    ViewBag.Title = "Subjects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Subjects</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjName)
+        </td>
+    
+    </tr>
+}
+
+</table>

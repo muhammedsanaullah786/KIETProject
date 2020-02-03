@@ -1,0 +1,253 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>@ViewBag.Title - Learning Managment System</title>
+    
+    <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+    <link href="~/Content/themes/JQGrid4U_Themes/le-frog/ui.theme.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="~/Scripts/jquery.jqGrid.min.js"></script>
+    <script src="~/Scripts/i18n/grid.locale-en.js"></script>
+    
+    <meta name="author" content="">
+    <meta name="msapplication-TileColor" content="#5bc0de" />
+    <meta name="msapplication-TileImage" content="assets/img/metis-tile.png" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/assets/lib/bootstrap/css/bootstrap.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/assets/lib/font-awesome/css/font-awesome.css">
+
+    <!-- Metis core stylesheet -->
+    <link rel="stylesheet" href="~/assets/css/main.css">
+
+    <!-- metisMenu stylesheet -->
+    <link rel="stylesheet" href="~/assets/lib/metismenu/metisMenu.css">
+
+    <!-- animate.css stylesheet -->
+    <link rel="stylesheet" href="~/assets/lib/animate.css/animate.css">
+
+    <script>
+        less = {
+            env: "development",
+            relativeUrls: false,
+            rootpath: "/assets/"
+        };
+    </script>
+    <link rel="stylesheet" href="~/assets/css/style-switcher.css">
+    <link rel="stylesheet/less" type="text/css" href="~/assets/less/theme.less">
+
+</head>
+
+<body>
+    <div class="bg-dark dk" id="wrap">
+        <div id="top">
+            <!-- .navbar -->
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container-fluid">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div style="float:left;padding-top:10px;font-size:25px;margin-left:0px;padding-left:0px;">
+                        
+                            
+                            Learning Management System
+                        
+                    </div>
+
+                    <div class="topnav">
+                        <div class="btn-group">
+                            <a data-placement="bottom" data-original-title="Fullscreen" data-toggle="tooltip"
+                               class="btn btn-default btn-sm" id="toggleFullScreen"><i class="glyphicon glyphicon-fullscreen"></i></a>
+                        </div>
+                        <div class="btn-group">
+                            <a data-placement="bottom" data-original-title="E-mail" data-toggle="tooltip"
+                               class="btn btn-default btn-sm"><i class="fa fa-envelope"></i><span class="label label-warning">5</span></a> <a data-placement="bottom" data-original-title="Messages" href="#" data-toggle="tooltip"
+                                                                                                                                              class="btn btn-default btn-sm"><i class="fa fa-comments"></i><span class="label label-danger">4</span></a> <a data-toggle="modal" data-original-title="Help" data-placement="bottom"
+                                                                                                                                                                                                                                                            class="btn btn-default btn-sm"
+                                                                                                                                                                                                                                                            href="#helpModal"><i class="fa fa-question"></i></a>
+                        </div>
+                        <div class="btn-group">
+                            <a href="login.html" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
+                               class="btn btn-metis-1 btn-sm"><i class="fa fa-power-off"></i></a>
+                        </div>
+                        <div class="btn-group">
+                            <a data-placement="bottom" data-original-title="Show / Hide Left" data-toggle="tooltip"
+                               class="btn btn-primary btn-sm toggle-left" id="menu-toggle"><i class="fa fa-bars"></i></a> <a data-placement="bottom" data-original-title="Show / Hide Right" data-toggle="tooltip"
+                                                                                                                             class="btn btn-default btn-sm toggle-right"><span class="glyphicon glyphicon-comment"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            <!-- /.navbar -->
+            
+                <!-- /.search-bar -->
+                <!-- /.main-bar -->
+         
+            <!-- /.head -->
+        </div>
+        <!-- /#top -->
+        <div id="left">
+            <div class="media user-media bg-dark dker">
+                <div class="user-media-toggleHover"> <span class="fa fa-user"></span> </div>
+                <div class="user-wrapper bg-dark">
+                    <a class="user-link" href=""> <img class="media-object img-thumbnail user-img" alt="User Picture" src="assets/img/user.gif"> <span class="label label-danger user-label">16</span> </a>
+                    <div class="media-body">
+                    
+                        <ul class="list-unstyled user-info">
+                            Welcome
+                            <li style="margin-top:20px;">
+                                Last Access : <br>
+                                <small><i class="fa fa-calendar"></i>&nbsp;16 Mar 16:32</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #menu -->
+            <ul id="menu" class="bg-blue dker">
+                <li class="nav-divider"></li>
+                <li>@Html.ActionLink("Admin Panel", "AdminPanel", "LoginJustification")</li>
+                <li class="">
+                    <a href="javascript:;"> <i class="fa fa-building "></i> <span class="link-title">Home</span> <span class="fa arrow"></span> </a>
+                    <ul class="collapse">
+                        <li class="">
+                            <a href="javascript:;"> <i class="fa fa-pencil"></i> <span class="link-title"> Home </span> <span class="fa arrow"></span> </a>
+                            <ul class="collapse">
+                                <li>@Html.ActionLink("Home", "Index", "Hom")</li>
+
+                            </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;"> <i class="fa fa-tasks"></i> <span class="link-title">Student</span> <span class="fa arrow"></span> </a>
+                    <ul class="collapse">
+                        <li>@Html.ActionLink("View Student", "ALLStudent", "Student")</li>
+                        <li>@Html.ActionLink("Add Student", "Index", "Student")</li>
+                        <li>@Html.ActionLink("Update Student", "Update", "Student")</li>
+                        <li>@Html.ActionLink("Delete Student", "Delete", "Student")</li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;"> <i class="fa fa-pencil"></i> <span class="link-title"> Departmants </span> <span class="fa arrow"></span> </a>
+                    <ul class="collapse">
+                        <li>@Html.ActionLink("Create Department", "Index", "Dept")</li>
+                        <li>@Html.ActionLink("View Department ", "ALLDept", "Dept")</li>
+                        <li>@Html.ActionLink("Update Department", "Update", "Dept")</li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;"> <i class="fa fa-pencil"></i> <span class="link-title"> Enroll Student </span> <span class="fa arrow"></span> </a>
+                    <ul class="collapse">
+                        <li>@Html.ActionLink("View Staff", "ALLStaff", "Staff")</li>
+                       <li>@Html.ActionLink("Add Staff", "Index", "Staff")</li>
+                        <li>@Html.ActionLink("Update Staff", "Update", "Staff")</li>
+                        <li>@Html.ActionLink("Delete Saff", "Detaile", "Staff")</li>
+                    </ul>
+                </li>
+                
+                
+                @*................................................*@
+                
+                
+                <li class="">
+                    <a href="javascript:;"> <i class="fa fa-pencil"></i> <span class="link-title">Check Fee</span> <span class="fa arrow"></span> </a>
+                    <ul class="collapse">
+                        <li>@Html.ActionLink("Fee", "GetFee", "Fee")</li>
+                    </ul>
+                </li>
+             
+                <li class="">
+                    <a href="javascript:;"> <i class="fa fa-pencil"></i> <span class="link-title">Subjects</span> <span class="fa arrow"></span> </a>
+                    <ul class="collapse">
+                        <li>@Html.ActionLink("All Subjects", "AllSubjects", "Sub")</li>
+                        <li>@Html.ActionLink("Student Subjects", "Subjects", "Sub")</li>
+                        <li>@Html.ActionLink("Create", "Index", "Sub")</li>
+                        <li>@Html.ActionLink("Update", "Update", "Sub")</li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /#menu -->
+        </div>
+        <!-- /#left -->
+        <div id="content">
+            <div class="outer">
+                <div class="inner bg-light lter">
+                    <div class="col-md-10" style="padding-bottom:50em">
+
+                        @RenderBody()
+                      
+
+                    </div>
+                    
+                </div>
+                <!-- /.inner -->
+            </div>
+            <!-- /.outer -->
+        </div>
+        <!-- /#content -->
+        <!-- /#right -->
+    </div>
+    <!-- /#wrap -->
+    <footer class="Footer bg-dark dker">
+        <p>2017 &copy; Arsalan's LMS DBMS Project</p>
+    </footer>
+    <!-- /#footer -->
+    <!-- #helpModal -->
+    <div id="helpModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- /#helpModal -->
+    <!--jQuery -->
+    <script src="~/assets/lib/jquery/jquery.js"></script>
+
+    <!--Bootstrap -->
+    <script src="~/assets/lib/bootstrap/js/bootstrap.js"></script>
+    <!-- MetisMenu -->
+    <script src="~/assets/lib/metismenu/metisMenu.js"></script>
+    <!-- Screenfull -->
+    <script src="~/assets/lib/screenfull/screenfull.js"></script>
+
+    <!-- Metis core scripts -->
+    <script src="~/assets/js/core.js"></script>
+    <!-- Metis demo scripts -->
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/style-switcher.js"></script>
+  
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

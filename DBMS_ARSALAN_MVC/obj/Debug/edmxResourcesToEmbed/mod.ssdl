@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ALMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeptName" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ALMS.dbo.Enroll' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Enroll">
+          <Property Name="Subjd" Type="int" />
+          <Property Name="SubjID" Type="int" />
+          <Property Name="examID" Type="int" />
+        </EntityType>-->
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="ExamId" />
+    </Key>
+    <Property Name="ExamId" Type="int" Nullable="false" />
+    <Property Name="SubjID" Type="int" />
+  </EntityType>
+  <EntityType Name="Exm_Routine">
+    <Key>
+      <PropertyRef Name="RoomNo" />
+    </Key>
+    <Property Name="RoomNo" Type="int" Nullable="false" />
+    <Property Name="Timing" Type="time" Precision="7" />
+    <Property Name="Date" Type="date" />
+    <Property Name="ExamID" Type="int" />
+  </EntityType>
+  <EntityType Name="Fee">
+    <Key>
+      <PropertyRef Name="SerialNO" />
+    </Key>
+    <Property Name="SerialNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="FeeTypeID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ALMS.dbo.FeeType' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="FeeType">
+          <Property Name="FeeTypeID" Type="int" />
+          <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="isDisCounted" Type="bit" />
+        </EntityType>-->
+  <EntityType Name="LoginUsers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="email" Type="text" />
+    <Property Name="password" Type="text" />
+    <Property Name="LgTypeID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ALMS.dbo.Result' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Result">
+          <Property Name="Sid" Type="int" />
+          <Property Name="SubID" Type="int" />
+          <Property Name="marks" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ExamId" Type="int" />
+        </EntityType>-->
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staffid" />
+    </Key>
+    <Property Name="Staffid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="25" />
+    <Property Name="LastName" Type="varchar" MaxLength="25" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="semester" Type="int" />
+    <Property Name="addmissiondate" Type="date" />
+    <Property Name="City" Type="varchar" MaxLength="25" />
+    <Property Name="Area" Type="varchar" MaxLength="25" />
+    <Property Name="Street" Type="varchar" MaxLength="25" />
+    <Property Name="Hno" Type="varchar" MaxLength="25" />
+    <Property Name="DeptID" Type="int" />
+    <Property Name="salary" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="25" />
+    <Property Name="LastName" Type="varchar" MaxLength="25" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="semester" Type="int" />
+    <Property Name="addmissiondate" Type="date" />
+    <Property Name="City" Type="varchar" MaxLength="25" />
+    <Property Name="Area" Type="varchar" MaxLength="25" />
+    <Property Name="Street" Type="varchar" MaxLength="25" />
+    <Property Name="Hno" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SubjID" />
+    </Key>
+    <Property Name="SubjID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubjName" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ALMS.dbo.Teacher' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Teacher">
+          <Property Name="Staffid" Type="int" />
+          <Property Name="SubjID" Type="int" />
+        </EntityType>-->
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="LgTypeID" />
+    </Key>
+    <Property Name="LgTypeID" Type="int" Nullable="false" />
+    <Property Name="RoleDesc" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <Association Name="FK__LoginUser__LgTyp__24927208">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="LoginUsers" Type="Self.LoginUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="LgTypeID" />
+      </Principal>
+      <Dependent Role="LoginUsers">
+        <PropertyRef Name="LgTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginUser__UserI__239E4DCF">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="LoginUsers" Type="Self.LoginUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Staffid" />
+      </Principal>
+      <Dependent Role="LoginUsers">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginUser__UserI__25869641">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="LoginUsers" Type="Self.LoginUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="sid" />
+      </Principal>
+      <Dependent Role="LoginUsers">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ALMSModelStoreContainer">
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exm_Routine" EntityType="Self.Exm_Routine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fee" EntityType="Self.Fee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginUsers" EntityType="Self.LoginUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__LoginUser__LgTyp__24927208" Association="Self.FK__LoginUser__LgTyp__24927208">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="LoginUsers" EntitySet="LoginUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginUser__UserI__239E4DCF" Association="Self.FK__LoginUser__UserI__239E4DCF">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="LoginUsers" EntitySet="LoginUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginUser__UserI__25869641" Association="Self.FK__LoginUser__UserI__25869641">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="LoginUsers" EntitySet="LoginUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
